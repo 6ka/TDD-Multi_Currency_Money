@@ -4,7 +4,4 @@ public class Franc extends Money {
 		super(amount, currency);
 	}
 
-	String currency() {
-		return currency;
-	}
 }

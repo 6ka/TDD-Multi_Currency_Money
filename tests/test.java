@@ -20,8 +20,6 @@ public class test {
 	public void testEquality() {
 		Assert.assertTrue(Money.dollar(5).equals(Money.dollar(5)));
 		Assert.assertFalse(Money.dollar(5).equals(Money.dollar(6)));
-		Assert.assertTrue(Money.franc(5).equals(Money.franc(5)));
-		Assert.assertFalse(Money.franc(5).equals(Money.franc(6)));
 		Assert.assertFalse(Money.franc(5).equals(Money.dollar(5)));
 	}
 
@@ -33,6 +31,6 @@ public class test {
 
 	@Test
 	public void testDifferentClassEquality() {
-		Assert.assertTrue(new Money(10, "CHF").equals(new Franc(10, "CHF")));
+		Assert.assertTrue(new Money(10, "CHF").equals(Money.franc(10)));
 	}
 }
