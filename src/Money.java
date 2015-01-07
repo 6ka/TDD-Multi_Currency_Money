@@ -1,8 +1,8 @@
-class Money implements Expression{
+class Money implements Expression {
 	protected int amount;
 	protected String currency;
 
-	Money(int amount, String currency){
+	Money(int amount, String currency) {
 		this.amount = amount;
 		this.currency = currency;
 	}
@@ -24,21 +24,22 @@ class Money implements Expression{
 		return new Money(amount, "CHF");
 	}
 
-	public String toString(){
+	public String toString() {
 		return amount + " " + currency;
 	}
 
-	Money times(int multiplier) {
+	Expression times(int multiplier) {
 		return new Money(amount * multiplier, currency);
 	}
 
-	Expression plus(Money addend) {
+	public Expression plus(Expression addend) {
 		return new Sum(this, addend);
 	}
 
-	public Money reduce(Bank bank, String to){
+	public Money reduce(Bank bank, String to) {
 		int rate = bank.rate(currency, to);
 		return new Money(amount / rate, to);
 	}
+
 }
 
